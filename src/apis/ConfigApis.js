@@ -53,8 +53,18 @@ export default {
 		return request.get('/logout')
 	},
 	async isAuthEnabled() {
-		const response = await request.get('/auth-enabled')
-		return response.data
+		const response = await fetch('/api/auth-enabled', {
+			credentials: 'include',
+			redirect: 'manual',
+			headers: {
+				'Accept': 'application/json'
+			}
+		})
+		//const response = await request.get('/auth-enabled', { withCredentials: true, maxRedirects: 0 })
+		if (response.type === 'opaqueredirect') {
+			throw new axios.AxiosError('Caught redirect for auth-enabled, rethrowing', response.status, response.config, response.request, response)
+		}
+		return await response.json()
 	},
 	// ---- USER ------
 	async updatePassword(data) {

@@ -398,6 +398,7 @@ import {
 	FirmwareUpdateStatus,
 } from 'zwave-js/safe'
 import DialogNodesManager from '@/components/dialogs/DialogNodesManager.vue'
+import { uuid } from './lib/utils'
 
 let socketQueue = []
 
@@ -1065,6 +1066,10 @@ export default {
 					this.startSocket()
 				}
 			} catch (error) {
+				if (error.response?.type === 'opaqueredirect') {
+					location.search = `?auth=${uuid()}`
+					return
+				}
 				setTimeout(() => (this.error = error.message), 1000)
 				log.error(error)
 			}

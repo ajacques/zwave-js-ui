@@ -20,11 +20,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zwave-js/zwave-js-ui"
+    "url": "git+https://github.com/zwave-js/zwave-js-ui.git"
   },
   "license": "MIT",
   "author": "Daniel Lando <daniel.sorridi@gmail.com>",
-  "bin": "server/bin/www.js",
+  "bin": {
+    "zwave-js-ui": "server/bin/www.js"
+  },
   "files": [
     "dist",
     "server",

@@ -202,6 +202,7 @@
     "node": ">= 20.19"
   },
   "publishConfig": {
+    "registry": "https://registry.npmjs.org",
     "provenance": true
   },
   "pkg": {

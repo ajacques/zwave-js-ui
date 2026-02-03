@@ -15,7 +15,8 @@
   },
   "npm": {
     "publish": true,
-    "provenance": true
+    "provenance": true,
+    "skipChecks": true
   },
   "plugins": {
     "@release-it/conventional-changelog": {

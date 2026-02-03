@@ -14,7 +14,8 @@
     ]
   },
   "npm": {
-    "publish": true
+    "publish": true,
+    "provenance": true
   },
   "plugins": {
     "@release-it/conventional-changelog": {
